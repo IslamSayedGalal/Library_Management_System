@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/all.min.css" />
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="stylesheets/fontawesome.min.css" />
+    <link rel="stylesheet" href="stylesheets/rtl.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script defer src="./js/js.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap" rel="stylesheet" />
+    <title>Book Store</title>
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-2 pb-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/mainPage"><img src="/images/logo.png" alt="Library" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/mainPage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/books-details">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <%- display %> " href="/add-book">Add Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <%- display %> " href="/delete-book">Delete Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bestSelling">Best Selling</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              other
+            </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="/contact">Contact</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/getCart">My Cart</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="/">Login</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"></li>
+                </ul>
+
+                <form class="d-flex">
+                    <input class="form-control me-2 serach" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">
+            Search
+          </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Landing -->
+        <section class="MainPage_Land_margin">
+            <section class="highest text-center">
+                <div class="position-relative top-50 translate-middle-y ">
+                    <img src="images/img-01.png" class="rounded rounded-circle border border-2 border-white" alt="" />
+                    <h1>Electronics</h1>
+                    <h3>Latest 2017 release</h3>
+                    <p class="m-b-5">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam voluptatibus quod repudiandae quis est nesciunt provident veritatis ipsa neque.
+                    </p>
+
+                </div>
+            </section>
+        </section>
+        <!-- we-have -->
+        <section class="we-have">
+            <div class="container-Books">
+                <div class="p-2 text-light opacity1 we-size">
+                    <div class="border border-2 border-white p-4">
+                        <i class="fas fa-book"></i>
+                        <h4>Books</h4>
+                        <h3>
+                            <%- books.length %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-2 text-light opacity2 we-size">
+                    <div class="border border-2 border-white text-light p-4">
+                        <i class="fas fa-user-alt"></i>
+                        <h3>Total</h3>
+                        <h3>
+                            <%- usersNumber %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-2 text-light opacity3 we-size">
+                    <div class="border border-2 border-white p-4">
+                        <i class="far fa-heart"></i>
+                        <h4>User</h4>
+                        <h3>
+                            <%- usersNumber %>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- People’s Choice / Bestselling Books  -->
+        <section class="container-Books" id="bestSelling">
+            <div class="Great-Books">
+                <div class="Content">
+                    <div>
+                        <p>People’s Choice</p>
+                        <h3>Bestselling Books</h3>
+                    </div>
+                    <div class="btn-custom">
+                        <a href="/books-details" class="btn-view btn-Gen text-decoration-none">View All</a>
+                        <div class="">
+                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" class="btn btn-Gen rounded-circle">
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" class="btn btn-Gen rounded-circle">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </section>
+        <!-- show-books -->
+        <section class="show-books spacebetween ">
+            <!-- container ps-lg-0 container-sm row -->
+            <section class="middel ">
+                <div id="carouselExampleControls" style="width: 300px; height: 150px;" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <% for(let i = 0 ; i< books.length ; i++) {%>
+                            <% if(i === 0) {%>
+                                <div class="carousel-item active">
+                                    <div class="card" style="width: 300px; height: 850px;">
+                                        <img src="<%- books[i].image %> " width="349px" height="349px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h6>Adventure Fun</h6>
+                                            <hr>
+                                            <!-- icon -->
+                                            <div class="sale">
+                                                sale
+                                            </div>
+                                            <h4>
+                                                <%books[i].subject%>
+                                            </h4>
+                                            <div>
+                                                <p>By :
+                                                    <%- books[i].auther %>
+                                                </p>
+                                                <div class="rate">
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <div class="price">
+                                                <p>$
+                                                    <%- books[i].price %>
+                                                        </bp>
+                                                        <p>$
+                                                            <%- +books[i].price + 20 %>
+                                                        </p>
+                                            </div>
+                                            <a href="/cart/<%= books[i]._id %> " class="btn btn-primary">Buy</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } else { %>
+                                    <div class="carousel-item ">
+                                        <div class="card" style="width: 300px; height: 850px;">
+                                            <img src="<%- books[i].image %> " width="349px" height="349px" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h6>Adventure Fun</h6>
+                                                <hr>
+                                                <!-- icon -->
+                                                <div class="sale">
+                                                    sale
+                                                </div>
+                                                <h4>
+                                                    <%books[i].subject%>
+                                                </h4>
+                                                <div>
+                                                    <p>By :
+                                                        <%- books[i].auther %>
+                                                    </p>
+                                                    <div class="rate">
+                                                        <i class="fas fa-star text-warning"></i>
+                                                        <i class="fas fa-star text-warning"></i>
+                                                        <i class="fas fa-star text-warning"></i>
+                                                        <i class="fas fa-star text-warning"></i>
+                                                        <i class="far fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="price">
+                                                    <p>$
+                                                        <%- books[i].price %>
+                                                            </bp>
+                                                            <p>$
+                                                                <%- +books[i].price + 20 %>
+                                                            </p>
+                                                </div>
+                                                <a href="/cart/<%- books[i]._id %> " class="btn btn-primary">Buy</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                        <% } %>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- Things To Know About Green Flat Design -->
+        <section class="bg-secondary section-height mt-5 mb-5">
+            <div class="container-Books">
+                <div class="container ps-md-0 container-sm row">
+                    <div class="col-lg-3 col-md-3 ms-lg-0 ms-md-0 col-11 d-s-none">
+                        <img src="images/img-02.png" class="high ps-lg-0" alt="" />
+                    </div>
+                    <div class="col-lg-4 mt-lg-5 ms-lg-5 col-11">
+                        <p class="text-white bg-danger ps-1 rounded d-inline">feartures</p>
+                        <div class="triangle d-inline-block"></div>
+                        <h1 class="green">Things To Know About Green Flat Design</h1>
+                        <p>By: Mahmoud Abdelkawi</p>
+                        <div class="size-star up-hr">
+                            <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-11 pt-lg-5 mt-lg-5 ms-lg-5">
+                        <div>
+                            <p class="text-success d-inline-block">25.25</p>
+                            <span class="text-decoration-line-through text-secondary">28.25</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- New Release Books -->
+        <section class="container-Books ps-lg-0 mt-5">
+            <section class="row ps-lg-0">
+                <div class="col-lg-5 ps-lg-0 ms-lg-0 col-11 container-sm txt-center-sm">
+                    <p>Taste The New Spice</p>
+                    <h1>New Release Books</h1>
+                    <hr />
+                    <p>
+                        Consectetur adipisicing elit sed do eiusmod tempor incididunt labore toloregna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoiars nisiuip commodo consequat aute irure dolor in aprehenderit aveli esseati cillum dolor fugiat nulla pariatur
+                        cepteur sint occaecat cupidatat.
+                    </p>
+                    <a class="btn btn-success text-decoration-none" href="/books-details">View All</a>
+                </div>
+                <div class="col-lg-5 col-11 container-sm row">
+                    <div class="
+                col-lg-3 col-11
+                ani-3d
+                ps-lg-0
+                mt-lg-0 mt-5
+                txt-center-sm
+                scale-rotate-image
+              ">
+                        <div>
+                            <img src="images/img-03(1).jpg" class="ani-img-3d w-100" alt="" />
+                        </div>
+
+                        <div class="
+                  bg-danger
+                  text-white text-center
+                  p-1
+                  position-relative
+                  zindex
+                  op-0
+                ">
+                            <i class="far fa-heart"></i> Add To Wishlist
+                        </div>
+                        <p class="text-secondary">Adnevture, Fun</p>
+                        <hr class="up-hr" />
+                        <div>
+                            <p class="text-white bg-danger ps-1 rounded d-inline">sales</p>
+                            <div class="triangle d-inline-block"></div>
+                        </div>
+                        <p class="fs-smaller">Let The Good Times Roll Up</p>
+                        <p>By: Islam Galal</p>
+                        <div class="size-star up-hr">
+                            <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="
+                col-lg-3 col-11
+                ani-3d
+                ps-lg-0
+                mt-lg-0 mt-5
+                txt-center-sm
+                scale-rotate-image
+              ">
+                        <div>
+                            <img src="images/img-04.jpg" class="ani-img-3d w-100" alt="" />
+                        </div>
+
+                        <div class="
+                  bg-danger
+                  text-white text-center
+                  p-1
+                  position-relative
+                  zindex
+                  op-0
+                ">
+                            <i class="far fa-heart"></i> Add To Wishlist
+                        </div>
+                        <p class="text-secondary">Adnevture, Fun</p>
+                        <hr class="up-hr" />
+                        <div>
+                            <p class="text-white bg-danger ps-1 rounded d-inline">sales</p>
+                            <div class="triangle d-inline-block"></div>
+                        </div>
+                        <p class="fs-xsmall">Our State Fair Is A Great State Fair</p>
+                        <p>By: Mohamed Farag</p>
+                        <div class="size-star up-hr">
+                            <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="
+                col-lg-3 col-11
+                ani-3d
+                ps-lg-0
+                mt-lg-0 mt-5
+                txt-center-sm
+                scale-rotate-image
+              ">
+                        <div>
+                            <img src="images/img-04.jpg" class="ani-img-3d w-100" alt="" />
+                        </div>
+
+                        <div class="
+                  bg-danger
+                  text-white text-center
+                  p-1
+                  position-relative
+                  zindex
+                  op-0
+                  edit
+                ">
+                            <i class="far fa-heart"></i> Add To Wishlist
+                        </div>
+                        <p class="text-secondary">Adnevture, Fun</p>
+                        <hr class="up-hr" />
+                        <div>
+                            <p class="text-white bg-danger ps-1 rounded d-inline">sales</p>
+                            <div class="triangle d-inline-block"></div>
+                        </div>
+                        <p>Help Me Find My Stomack</p>
+                        <p>By: Mahmoud Abdelkawi</p>
+                        <div class="size-star up-hr">
+                            <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- counter -->
+        <section class="image">
+            <div class="container ps-lg-0 row">
+                <div class="d-flex col-lg-3 justify-content-evenly mt-5 mb-5">
+                    <div class="bg-mov text-white rounded-circle">
+                        <i class="far fa-comment m-4 fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="color-mov">DRAMA</h4>
+                        <p class="num">6,179,213</p>
+                    </div>
+                    <hr class="rotate d-s-none" />
+                </div>
+
+                <div class="d-flex col-lg-3 justify-content-evenly mt-5 mb-5">
+                    <div class="bg-primary text-white rounded-circle">
+                        <i class="fas fa-heartbeat m-4 fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-primary">Horror</h4>
+                        <p class="num">3,121,242</p>
+                    </div>
+                    <hr class="rotate d-s-none" />
+                </div>
+                <div class="d-flex col-lg-3 justify-content-evenly mt-5 mb-5">
+                    <div class="bg-success text-white rounded-circle">
+                        <i class="far fa-heart m-4 fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-success">Romantic</h4>
+                        <p class="num">3,121,242</p>
+                    </div>
+                    <hr class="rotate d-s-none" />
+                </div>
+                <div class="d-flex col-lg-3 justify-content-evenly mt-5 mb-5">
+                    <div class="bg-warning text-white rounded-circle">
+                        <i class="far fa-star m-4 fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-warning">Fashion</h4>
+                        <p class="num">3,121,242</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fast Delivery & Open Discount & other -->
+        <section class="bg-light">
+            <hr class="bg-success p-1 mt-5 mb-5">
+            <div class="container-Books d-flex justify-content-between align-items-center flex-wrap">
+                <div class="fast parent d-flex justify-content-between align-items-center m-3">
+                    <i class="fas fa-fighter-jet icon"></i>
+                    <div class="desc">
+                        <h3>Fast Delivery</h3>
+                        <p>Shipping Worldwide</p>
+                    </div>
+                </div>
+                <div class="discount parent d-flex justify-content-between align-items-center m-3">
+                    <i class="fas fa-tag icon"></i>
+                    <div class="desc">
+                        <h3>Open Discount</h3>
+                        <p>Offering Open Discount</p>
+                    </div>
+                </div>
+                <div class="Quality parent d-flex justify-content-between align-items-center m-3">
+                    <i class="fas fa-leaf icon"></i>
+                    <div class="desc">
+                        <h3>Eyes On Quality</h3>
+                        <p>Publishing Quality Work</p>
+                    </div>
+                </div>
+                <div class="Support parent d-flex justify-content-between align-items-center m-3">
+                    <i class="fas fa-heart icon"></i>
+                    <div class="desc">
+                        <h3>24/7 Support</h3>
+                        <p>Serving Every Moments</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="container-Books mt-5 mb-5">
+            <div class="container-Books d-flex justify-content-between flex-wrap">
+                <div class="about w-25">
+                    <img src="/images/logo.png" alt="">
+                    <div class="suit d-flex mt-5 align-items-center">
+                        <i class="far fa-building icon me-4"></i>
+                        <p>Suit # 07, Rose world Building, Street # 02, AT246T Manchester </p>
+                    </div>
+                    <div class="number mt-5 d-flex align-items-center">
+                        <i class="fas fa-phone me-4"></i>
+                        <div>
+                            <p>0800 12345 - 678 - 89</p>
+                            <p>+4 1234 - 4567 - 67</p>
+                        </div>
+                    </div>
+                    <div class="clock mt-5 d-flex align-items-center">
+                        <i class="far fa-clock me-4"></i>
+                        <p>Serving 7 Days A Week From 9am - 5pm</p>
+                    </div>
+                    <div class="mail mt-5 d-flex align-items-center">
+                        <i class="far fa-envelope me-4"></i>
+                        <div>
+                            <p>support@domain.com</p>
+                            <p>info@domain.com</p>
+                        </div>
+                    </div>
+                    <div class="social d-flex justify-content-evenly mt-5 mb-5">
+                        <a href="https://www.twitter.com/"> <i class="fab fa-twitter icon"></i></a>
+                        <a href="https://www.facebook.com/" style="color: blue" target="_block"> <i class="fab fa-facebook icon "></i> </a>
+                        <a href="https://www.google.com/"> <i class="fab fa-google-plus-g icon"></i> </a>
+
+                    </div>
+                </div>
+                <div class="shipping w-25">
+                    <h6>Shipping And Help Information</h6>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <ul class="m-0">
+                            <li>Terms of Use</li>
+                            <li>Terms of Sale</li>
+                            <li>Returns</li>
+                            <li>Privacy</li>
+                            <li>Cookies</li>
+                            <li>Contact Us</li>
+                            <li>Our Affiliates</li>
+                            <li>Vision & Aim</li>
+                        </ul>
+                        <ul class="m-0">
+                            <li>Our Story</li>
+                            <li>Meet Our Team</li>
+                            <li>FAQ</li>
+                            <li>Testimonials</li>
+                            <li>Join Our Team</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="Selling w-25">
+                    <h6>Top Selling Authors</h6>
+                    <hr>
+                    <div class="d-flex align-items-center mb-5">
+                        <img class="me-5" src="/images/p1.jpg" alt="">
+                        <div>
+                            <h6>Jude Morphew</h6>
+                            <p>21,658 Published Books</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-5">
+                        <img class="me-5" src="/images/p2.jpg" alt="">
+                        <div>
+                            <h6>Shaun Humes</h6>
+                            <p>20,257 Published Books</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-5">
+                        <img class="me-5" src="/images/p3.jpg" alt="">
+                        <div>
+                            <h6>Kathrine Culbertson</h6>
+                            <p>15,686 Published Books</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="m-0">
+        </section>
+        <!-- mail us -->
+        <section class="mailus">
+            <div class="container-Books d-flex  justify-content-between align-items-center mailus-parent">
+                <div class="w-50 mt-5 mb-5 Signup">
+                    <h1 class="text-success">Signup Newsletter!</h1>
+                    <h4>Consectetur Adipisicing Elit Sed Do Eiusmod Tempor Incididunt.</h4>
+                </div>
+                <div class="input-group mb-3 w-50">
+                    <input type="text" class="form-control p-3" placeholder="Enter Your Email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
+                class="far fa-envelope"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container-Books d-flex justify-content-between align-items-center footer-f">
+            <p class="copy-right">2021 All Rights Reserved By © Library</p>
+            <div class="payment">
+                <i class="fab fa-cc-apple-pay"></i>
+                <i class="fab fa-cc-amazon-pay"></i>
+                <i class="fab fa-apple-pay"></i>
+                <i class="fab fa-amazon-pay"></i>
+            </div>
+        </div>
+    </footer>
+    <script src="javascripts/all.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="javascripts/html5shiv.min.js"></script>
+    <script src="javascripts/jquery-3.5.1.min.js"></script>
+    <script src="javascripts/Respond.js"></script>
+    <script src="javascripts/js.js"></script>
+</body>
+
+</html>

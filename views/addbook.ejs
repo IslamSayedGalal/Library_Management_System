@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/all.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+
+<body>
+
+    <!-- start code -->
+
+    <!-- container -->
+    <div class="container ">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="d-flex justify-content-center m-3">
+                            <h1 class="text-warning"> Addition Book</h1>
+                        </div>
+                        <!-- form contact -->
+                        <form action='/add-book' method="POST">
+
+                            <!-- start Name book -->
+                            <div class="mb-3 ">
+                                <input type="text" name="bookName" class="form-control " id="namebook" placeholder="Name Book*" aria-describedby="emailHelp">
+                            </div>
+                            <!-- end name book -->
+
+                            <!-- start subject -->
+                            <div class="mb-3">
+                                <input type="text" name="subject" class="form-control " id="subject" placeholder="Subject*" aria-describedby="emailHelp">
+                            </div>
+                            <!-- end subject -->
+
+                            <!-- start Link image -->
+                            <div class="mb-3">
+                                <input type="text" name="image" class="form-control" id="image" placeholder="Link Image*">
+                            </div>
+                            <!-- end Link image -->
+
+                            <!-- start option Categroies -->
+                            <div class=" d-flex justify-content-between mb-3 ">
+                                <label for=" " class="col-6 mt-2 ">Please choose an Categories</label>
+                                <select name="select" id="categories " class="select col-6 ">
+                                    <option value="science">Science</option>
+                                    <option value="computer science">Computer Science</option>
+                                    <option value="arts">Arts</option>
+                                    <option value="literature">Literature</option>
+                                    <option value="history">History</option>
+                                </select>
+                            </div>
+                            <!-- end  option Categroies-->
+
+
+                            <!-- start row Author and Publisher -->
+                            <div class="d-flex justify-content-between ">
+                                <div class="mb-3 col-5 ">
+                                    <input type="text " name="auther" class="form-control " id="author " placeholder="Author* ">
+                                </div>
+                                <div class="mb-3 col-5 ">
+                                    <input type="text " name="publisher" class="form-control " id="publisher " placeholder="Publisher* " aria-describedby="emailHelp ">
+                                </div>
+                            </div>
+                            <!-- end row Author and Publisher -->
+
+
+                            <!-- start row copies and price -->
+                            <div class="d-flex justify-content-between ">
+                                <div class="mb-3 col-5 ">
+                                    <input type="number" min="0" name="copies" class="form-control " id="copies " placeholder="Copies* " aria-describedby="emailHelp ">
+                                </div>
+                                <div class=" mb-3 col-5 ">
+                                    <input type="number" min="0" name="price" class="form-control " id="price " placeholder="Price* " aria-describedby="emailHelp ">
+                                </div>
+                            </div>
+                            <!-- end row copies and price -->
+
+
+                            <!-- textarea -->
+                            <div class="mb-3 text-area">
+                                <textarea name="description" id=" " rows="5 " class="w-100 " placeholder="Description "></textarea>
+                            </div>
+                            <!-- end textarea -->
+
+                            <!-- start button submit -->
+                            <button type="submit" class="btn btn-warning ">Add Item</button>
+                            <!-- end button submit -->
+                        </form>
+                        <!-- form contact -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end container -->
+
+
+    <!-- end code #Islam Galal-->
+</body>
+
+</html>
